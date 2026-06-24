@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using Hospital.Application.Commands.Orders;
 using Hospital.Application.Interfaces;
 using Hospital.Domain.Orders;
 using MediatR;
 
-namespace Hospital.Application.Orders.Commands.CreateOrder
+namespace Hospital.Application.Commands.Orders.CreateOrder
 { 
-    public sealed class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, CreateOrderResponse>
+    public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, CreateOrderResponse>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;

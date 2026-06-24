@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Hospital.Application.Commands.Orders
+namespace Hospital.Application.Commands.Orders.CreateOrder
 { 
     public class CreateOrderCommandValidator: AbstractValidator<CreateOrderCommand>
     {

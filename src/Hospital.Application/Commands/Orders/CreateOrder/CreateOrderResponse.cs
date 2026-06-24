@@ -1,8 +1,8 @@
 ﻿using Hospital.Domain.Enums;
 
-namespace Hospital.Application.Commands.Orders
+namespace Hospital.Application.Commands.Orders.CreateOrder
 { 
-    public sealed record CreateOrderResponse(
+    public record CreateOrderResponse(
         Guid Id,
         decimal Total,
         OrderStatus Status
