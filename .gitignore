@@ -1,0 +1,80 @@
+# =========================
+# Visual Studio / IDE
+# =========================
+.vs/
+.vscode/
+.idea/
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.iml
+.vsconfig
+
+# =========================
+# Build
+# =========================
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+publish/
+out/
+artifacts/
+
+# =========================
+# Testing / Coverage
+# =========================
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.coveragereport
+*.codecoverage
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+*.snupkg
+
+# =========================
+# SQL Server
+# =========================
+*.mdf
+*.ldf
+*.ndf
+
+# =========================
+# Logs
+# =========================
+Logs/*
+!Logs/.gitkeep
+*.log
+
+# =========================
+# Configuration
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+
+.env
+.env.*
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.bak
+*.old
+*.cache
+
+# =========================
+# Operating System
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
