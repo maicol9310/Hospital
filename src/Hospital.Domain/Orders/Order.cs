@@ -1,6 +1,4 @@
-﻿using Hospital.Domain.Enums;
-
-namespace Hospital.Domain.Orders;
+﻿namespace Hospital.Domain.Orders;
 
 public class Order
 {

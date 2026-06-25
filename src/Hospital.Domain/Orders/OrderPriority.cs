@@ -1,4 +1,4 @@
-﻿namespace Hospital.Domain.Enums
+﻿namespace Hospital.Domain.Orders
 {
     public enum OrderPriority
     {

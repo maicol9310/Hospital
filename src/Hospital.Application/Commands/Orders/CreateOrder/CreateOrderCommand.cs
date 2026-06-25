@@ -1,4 +1,4 @@
-﻿using Hospital.Domain.Enums;
+﻿using Hospital.Domain.Orders;
 using MediatR;
 
 namespace Hospital.Application.Commands.Orders.CreateOrder 

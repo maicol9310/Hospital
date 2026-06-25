@@ -1,4 +1,4 @@
-﻿using Hospital.Domain.Enums;
+﻿using Hospital.Domain.Orders;
 
 namespace Hospital.Application.DTOs.Order
 {
