@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Hospital.Application.Interfaces;
 using Hospital.Application.UnitOfWork;
 using Hospital.Domain.Orders;
 using MediatR;
@@ -8,16 +7,13 @@ namespace Hospital.Application.Commands.Orders.CreateOrder
 { 
     public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, CreateOrderResponse>
     {
-        private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public CreateOrderCommandHandler(
-            IOrderRepository orderRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper)
         {
-            _orderRepository = orderRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -32,7 +28,7 @@ namespace Hospital.Application.Commands.Orders.CreateOrder
                 request.ServiceDescription,
                 request.Priority);
 
-            await _orderRepository.AddAsync(order, cancellationToken);
+            await _unitOfWork.Orders.AddAsync(order, cancellationToken);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

@@ -43,32 +43,17 @@ public class Order
         ServiceDescription = serviceDescription;
         Priority = priority;
 
-        Status = OrderStatus.Created;
+        Status = OrderStatus.Pending;
         CreatedAt = DateTime.UtcNow;
     }
 
-    public void Process()
+    public void MarkAsProcessed()
     {
-        if (Status != OrderStatus.Created)
-            throw new InvalidOperationException("Solo una orden creada puede procesarse.");
+        if (Status == OrderStatus.Processed)
+            return;
 
-        Status = OrderStatus.Processing;
-    }
-
-    public void Complete()
-    {
-        if (Status != OrderStatus.Processing)
-            throw new InvalidOperationException("Solo una orden en proceso puede completarse.");
-
-        Status = OrderStatus.Completed;
+        Status = OrderStatus.Processed;
         ProcessedAt = DateTime.UtcNow;
     }
 
-    public void Cancel()
-    {
-        if (Status == OrderStatus.Completed)
-            throw new InvalidOperationException("No se puede cancelar una orden completada.");
-
-        Status = OrderStatus.Cancelled;
-    }
 }
