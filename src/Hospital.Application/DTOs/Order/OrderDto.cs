@@ -4,11 +4,13 @@ namespace Hospital.Application.DTOs.Order
 {
     public record OrderDto(
         Guid Id,
-        string CustomerName,
-        DateTime CreatedAt,
-        DateTime? ProcessedAt,
-        decimal Total,
+        string PatientId,
+        string? PatientName,
+        string ServiceCode,
+        string? ServiceDescription,
+        OrderPriority Priority,
         OrderStatus Status,
-        IReadOnlyCollection<OrderItemDto> Items
+        DateTime CreatedAt,
+        DateTime? ProcessedAt
     );
 }

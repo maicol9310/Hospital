@@ -24,21 +24,19 @@ namespace Hospital.Application.Commands.Orders.CreateOrder
         public async Task<CreateOrderResponse> Handle(CreateOrderCommand request,CancellationToken cancellationToken)
         {
 
-            var order = new Order(request.CustomerName);
-
-            foreach (var item in request.Items)
-            {
-                order.AddItem(
-                    item.Product,
-                    item.Quantity,
-                    item.Price);
-            }
+            var order = new Order(
+                request.PatientId,
+                request.PatientName,
+                request.ServiceCode,
+                request.ServiceDescription,
+                request.Priority);
 
             await _orderRepository.AddAsync(order, cancellationToken);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<CreateOrderResponse>(order);
+
         }
     }
 }

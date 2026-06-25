@@ -1,13 +1,13 @@
-﻿using MediatR;
+﻿using Hospital.Domain.Enums;
+using MediatR;
 
 namespace Hospital.Application.Commands.Orders.CreateOrder 
-{ 
-    public record CreateOrderCommand(string CustomerName, IReadOnlyCollection<CreateOrderItemDto> Items
+{
+    public record CreateOrderCommand(
+        string PatientId,
+        string PatientName,
+        string ServiceCode,
+        string ServiceDescription,
+        OrderPriority Priority
     ) : IRequest<CreateOrderResponse>;
-
-    public record CreateOrderItemDto(
-        string Product,
-        int Quantity,
-        decimal Price
-    );
 }

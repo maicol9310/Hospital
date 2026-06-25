@@ -12,8 +12,6 @@ namespace Hospital.Application.Mappings
             CreateMap<Order, CreateOrderResponse>();
 
             CreateMap<Order, OrderDto>();
-
-            CreateMap<OrderItem, OrderItemDto>();
         }
     }
 }
