@@ -5,6 +5,10 @@ using Hospital.Infrastructure.Persistence;
 using Hospital.Infrastructure.Persistence.Repositories;
 using Hospital.Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
+using Hospital.SharedKernel.Extensions;
+using FluentValidation;
+using MediatR;
+using Hospital.SharedKernel.Behaviors;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -18,6 +22,9 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<Hospital.Application.Mappings.OrderProfile>());
+
+builder.Services.AddValidatorsFromAssembly(typeof(AssemblyMarker).Assembly);
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
@@ -36,5 +43,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseGlobalExceptionMiddleware();
 app.MapControllers();
 app.Run();
