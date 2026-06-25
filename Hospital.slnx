@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Hospital.SharedKernel/Hospital.SharedKernel.csproj" Id="d7cca67b-fd03-4ea7-890b-582e85db9ba2" />
   <Project Path="src/Hospital.API/Hospital.API.csproj" Id="c6561f2f-1fb9-4557-98ba-cbecdc990707" />
   <Project Path="src/Hospital.Application/Hospital.Application.csproj" Id="dac1a5f9-9a25-4a6e-9c41-e143496282da" />
   <Project Path="src/Hospital.Domain/Hospital.Domain.csproj" Id="ee232f23-1c51-4bb7-8f32-afbfa20a3f89" />
