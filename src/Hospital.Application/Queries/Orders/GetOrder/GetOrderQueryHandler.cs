@@ -3,14 +3,14 @@ using Hospital.Application.DTOs.Order;
 using Hospital.Application.UnitOfWork;
 using MediatR;
 
-namespace Hospital.Application.Queries.Orders.GetOrderById
+namespace Hospital.Application.Queries.Orders.GetOrder
 {
-    public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, OrderDto?>
+    public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, OrderDto?>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetOrderByIdQueryHandler(
+        public GetOrderQueryHandler(
             IUnitOfWork unitOfWork,
             IMapper mapper)
         {
@@ -18,7 +18,7 @@ namespace Hospital.Application.Queries.Orders.GetOrderById
             _mapper = mapper;
         }
 
-        public async Task<OrderDto?> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
+        public async Task<OrderDto?> Handle(GetOrderQuery request, CancellationToken cancellationToken)
         {
             var order = await _unitOfWork.Orders.GetByIdAsync(
                 request.Id,

@@ -8,9 +8,7 @@ namespace Hospital.Application.Interfaces
 
         Task<Order?> GetByIdAsync(string id, CancellationToken cancellationToken);
 
-        Task<IReadOnlyList<Order>> GetAllAsync(CancellationToken cancellationToken);
-
-        Task<IReadOnlyList<Order>> GetPendingAsync(CancellationToken cancellationToken);
+        Task<IReadOnlyList<Order>> GetAllAsync(string? patientId, OrderStatus? status, CancellationToken cancellationToken);
 
         void Update(Order order);
     }

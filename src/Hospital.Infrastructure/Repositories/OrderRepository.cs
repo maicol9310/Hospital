@@ -1,4 +1,5 @@
-﻿using Hospital.Application.Interfaces;
+﻿using Hospital.Application.DTOs.Order;
+using Hospital.Application.Interfaces;
 using Hospital.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,23 +19,26 @@ public class OrderRepository : IOrderRepository
         await _context.Orders.AddAsync(order, cancellationToken);
     }
 
-    public async Task<IReadOnlyList<Order>> GetAllAsync(CancellationToken cancellationToken = default)
-    {
-        return await _context.Orders.OrderBy(o => o.CreatedAt).ToListAsync(cancellationToken);
-    }
-
     public async Task<Order?> GetByIdAsync(string id, CancellationToken cancellationToken = default)
     {
         return await _context.Orders
             .FirstOrDefaultAsync(o => o.PatientId == id, cancellationToken);
     }
 
-    public async Task<IReadOnlyList<Order>> GetPendingAsync(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<Order>> GetAllAsync(
+        string? patientId,
+        OrderStatus? status,
+        CancellationToken cancellationToken)
     {
-        return await _context.Orders
-            .Where(o => o.Status == OrderStatus.Pending)
-            .OrderBy(o => o.CreatedAt)
-            .ToListAsync(cancellationToken);
+        var query = _context.Orders.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(patientId))
+            query = query.Where(x => x.PatientId == patientId);
+
+        if (status.HasValue)
+            query = query.Where(x => x.Status == status.Value);
+
+        return await query.ToListAsync(cancellationToken);
     }
 
     public void Update(Order order)

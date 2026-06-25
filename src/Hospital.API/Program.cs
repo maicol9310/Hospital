@@ -1,14 +1,15 @@
+using FluentValidation;
 using Hospital.Application;
 using Hospital.Application.Interfaces;
 using Hospital.Application.UnitOfWork;
 using Hospital.Infrastructure.Persistence;
 using Hospital.Infrastructure.Persistence.Repositories;
 using Hospital.Infrastructure.UnitOfWork;
-using Microsoft.EntityFrameworkCore;
-using Hospital.SharedKernel.Extensions;
-using FluentValidation;
-using MediatR;
 using Hospital.SharedKernel.Behaviors;
+using Hospital.SharedKernel.Extensions;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -29,7 +30,11 @@ builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBeh
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+}); 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
