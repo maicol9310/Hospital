@@ -6,7 +6,7 @@ namespace Hospital.Application.Interfaces
     {
         Task AddAsync(Order order, CancellationToken cancellationToken);
 
-        Task<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+        Task<Order?> GetByIdAsync(string id, CancellationToken cancellationToken);
 
         Task<IReadOnlyList<Order>> GetAllAsync(CancellationToken cancellationToken);
 
