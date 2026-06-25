@@ -9,10 +9,21 @@ using Hospital.SharedKernel.Behaviors;
 using Hospital.SharedKernel.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithThreadId()
+    .Enrich.WithMachineName()
+    .Enrich.WithProcessId()
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddDbContext<HospitalDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));

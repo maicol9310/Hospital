@@ -1,5 +1,4 @@
-﻿using Hospital.Application.DTOs.Order;
-using Hospital.Application.Interfaces;
+﻿using Hospital.Application.Interfaces;
 using Hospital.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 
