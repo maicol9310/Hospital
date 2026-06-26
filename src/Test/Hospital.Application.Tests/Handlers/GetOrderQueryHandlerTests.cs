@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FluentAssertions;
 using Hospital.Application.DTOs.Order;
+using Hospital.Application.Interfaces;
 using Hospital.Application.Queries.Orders.GetOrder;
 using Hospital.Application.UnitOfWork;
 using Hospital.Domain.Orders;
@@ -13,13 +14,19 @@ namespace Hospital.Application.Tests.Handlers
     {
         private Mock<IUnitOfWork> _unitOfWork = null!;
         private Mock<IMapper> _mapper = null!;
+        private Mock<IOrderRepository> _orderRepository = null!;
         private GetOrderQueryHandler _handler = null!;
 
         [SetUp]
         public void Setup()
         {
             _unitOfWork = new Mock<IUnitOfWork>();
+            _orderRepository = new Mock<IOrderRepository>();
             _mapper = new Mock<IMapper>();
+
+            _unitOfWork
+                .Setup(x => x.Orders)
+                .Returns(_orderRepository.Object);
 
             _handler = new GetOrderQueryHandler(
                 _unitOfWork.Object,
@@ -27,60 +34,57 @@ namespace Hospital.Application.Tests.Handlers
         }
 
         [Test]
-        public async Task Handle_ShouldReturnOrders()
+        public async Task Handle_ShouldReturnOrder()
         {
-            // Arrange
-            var orders = new List<Order>();
+            var order = new Order(
+                "123",
+                "Juan",
+                "LAB",
+                "Laboratorio",
+                OrderPriority.Normal);
 
-            var expected = new List<OrderDto>
-            {
-                new OrderDto(
-                    Guid.NewGuid(),
-                    "123",
-                    "Juan",
-                    "LAB",
-                    "Laboratorio",
-                    OrderPriority.Normal,
-                    OrderStatus.Pending,
-                    DateTime.UtcNow,
-                    null)
-            };
+            var expected = new OrderDto(
+                order.Id,
+                order.PatientId,
+                order.PatientName,
+                order.ServiceCode,
+                order.ServiceDescription,
+                order.Priority,
+                order.Status,
+                order.CreatedAt,
+                order.ProcessedAt);
 
-            _unitOfWork.Setup(x =>
-                    x.Orders.GetByIdAsync(
-                        It.IsAny<string>(),
-                        It.IsAny<CancellationToken>()))
-                .ReturnsAsync(orders);
+            _orderRepository
+                .Setup(x => x.GetByIdAsync(
+                    It.IsAny<Guid>(),
+                    It.IsAny<CancellationToken>()))
+                .ReturnsAsync(order);
 
-            _mapper.Setup(x =>
-                    x.Map<List<OrderDto>>(orders))
+            _mapper
+                .Setup(x => x.Map<OrderDto>(order))
                 .Returns(expected);
 
-            // Act
             var result = await _handler.Handle(
-                new GetOrderQuery("123"),
+                new GetOrderQuery(order.Id),
                 CancellationToken.None);
 
-            // Assert
+            result.Should().NotBeNull();
             result.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public async Task Handle_ShouldReturnNull_WhenRepositoryReturnsNull()
         {
-            // Arrange
             _unitOfWork.Setup(x =>
                     x.Orders.GetByIdAsync(
-                        It.IsAny<string>(),
+                        It.IsAny<Guid>(),
                         It.IsAny<CancellationToken>()))
-                .ReturnsAsync((List<Order>?)null);
+                .ReturnsAsync((Order?)null);
 
-            // Act
             var result = await _handler.Handle(
-                new GetOrderQuery("123"),
+                new GetOrderQuery(Guid.NewGuid()),
                 CancellationToken.None);
 
-            // Assert
             result.Should().BeNull();
         }
     }
