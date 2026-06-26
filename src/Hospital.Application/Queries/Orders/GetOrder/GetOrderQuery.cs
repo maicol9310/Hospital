@@ -3,5 +3,5 @@ using MediatR;
 
 namespace Hospital.Application.Queries.Orders.GetOrder
 {
-    public record GetOrderQuery(string PatientId): IRequest<List<OrderDto>>;
+    public record GetOrderQuery(Guid Id): IRequest<OrderDto>;
 }

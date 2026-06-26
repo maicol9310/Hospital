@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Hospital.Application.Queries.Orders.GetOrder
 {
-    public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, List<OrderDto>?>
+    public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, OrderDto?>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -18,16 +18,16 @@ namespace Hospital.Application.Queries.Orders.GetOrder
             _mapper = mapper;
         }
 
-        public async Task<List<OrderDto>?> Handle(GetOrderQuery request, CancellationToken cancellationToken)
+        public async Task<OrderDto?> Handle(GetOrderQuery request, CancellationToken cancellationToken)
         {
             var order = await _unitOfWork.Orders.GetByIdAsync(
-                request.PatientId,
+                request.Id,
                 cancellationToken);
 
             if (order is null)
                 return null;
 
-            return _mapper.Map<List<OrderDto>>(order);
+            return _mapper.Map<OrderDto>(order);
         }
     }
 }

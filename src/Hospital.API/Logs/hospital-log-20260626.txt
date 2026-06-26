@@ -8,3 +8,45 @@
 [2026-06-26 02:41:49 INF] HTTP GET /swagger/index.html responded 200 in 136.7420 ms
 [2026-06-26 02:41:50 INF] HTTP GET /swagger/index.html responded 200 in 10.4017 ms
 [2026-06-26 02:41:50 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 23.4112 ms
+[2026-06-26 03:48:40 INF] Worker iniciado.
+[2026-06-26 03:48:42 INF] HTTP GET /swagger/index.html responded 200 in 128.7524 ms
+[2026-06-26 03:48:43 INF] HTTP GET /swagger/index.html responded 200 in 2.5778 ms
+[2026-06-26 03:48:43 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 24.2333 ms
+[2026-06-26 03:49:10 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 15.9075 ms
+[2026-06-26 03:49:11 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 8.3377 ms
+[2026-06-26 03:49:11 INF] HTTP GET /favicon.ico responded 404 in 5.6358 ms
+[2026-06-26 03:50:27 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 14.7925 ms
+[2026-06-26 03:50:27 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.5344 ms
+[2026-06-26 03:56:42 INF] Worker iniciado.
+[2026-06-26 03:56:45 INF] HTTP GET /swagger/index.html responded 200 in 265.9316 ms
+[2026-06-26 03:56:46 INF] HTTP GET /swagger/index.html responded 200 in 6.3184 ms
+[2026-06-26 03:56:46 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 47.1549 ms
+[2026-06-26 03:56:49 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 27.8631 ms
+[2026-06-26 03:56:50 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 17.7010 ms
+[2026-06-26 04:00:43 INF] Worker iniciado.
+[2026-06-26 04:00:46 INF] HTTP GET /swagger/index.html responded 200 in 253.7473 ms
+[2026-06-26 04:00:47 INF] HTTP GET /swagger/index.html responded 200 in 5.4452 ms
+[2026-06-26 04:00:48 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 45.5691 ms
+[2026-06-26 04:00:50 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 45.4160 ms
+[2026-06-26 04:00:50 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 21.4860 ms
+[2026-06-26 04:03:59 INF] Worker iniciado.
+[2026-06-26 04:04:01 INF] HTTP GET /swagger/index.html responded 200 in 232.4068 ms
+[2026-06-26 04:04:03 INF] HTTP GET /swagger/index.html responded 200 in 15.0792 ms
+[2026-06-26 04:04:03 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 50.7745 ms
+[2026-06-26 04:04:06 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 34.7726 ms
+[2026-06-26 04:04:07 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 20.3168 ms
+[2026-06-26 04:08:37 INF] Worker iniciado.
+[2026-06-26 04:08:40 INF] HTTP GET /swagger/index.html responded 200 in 226.4517 ms
+[2026-06-26 04:08:41 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 51.2286 ms
+[2026-06-26 04:08:44 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 36.6715 ms
+[2026-06-26 04:08:45 INF] HTTP GET /swagger/index.html responded 200 in 5.6767 ms
+[2026-06-26 04:08:45 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 26.7118 ms
+[2026-06-26 04:08:46 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 19.5994 ms
+[2026-06-26 04:18:30 INF] Worker iniciado.
+[2026-06-26 04:18:33 INF] HTTP GET /swagger/index.html responded 200 in 226.5019 ms
+[2026-06-26 04:18:34 INF] HTTP GET /swagger/index.html responded 200 in 6.4658 ms
+[2026-06-26 04:18:35 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 56.8534 ms
+[2026-06-26 04:19:40 WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-26 04:19:40 INF] HTTP POST /api/Auth/login responded 200 in 867.0955 ms
+[2026-06-26 04:20:08 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-26 04:20:09 INF] HTTP GET /api/Orders/0F058F4A-A06C-4796-A174-77A3B5980099 responded 200 in 492.5950 ms
