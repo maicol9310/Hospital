@@ -29,12 +29,12 @@ namespace Hospital.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = response.Id },response);
         }
 
-        [HttpGet("{patientId}")]
+        [HttpGet("{Id}")]
         [ProducesResponseType(typeof(OrderDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(string patientId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetById(string Id, CancellationToken cancellationToken)
         {
-            var response = await _sender.Send(new GetOrderQuery(patientId), cancellationToken);
+            var response = await _sender.Send(new GetOrderQuery(Id), cancellationToken);
 
             return Ok(response);
         }

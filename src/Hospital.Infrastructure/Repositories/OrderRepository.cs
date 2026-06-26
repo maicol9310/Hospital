@@ -40,9 +40,4 @@ public class OrderRepository : IOrderRepository
 
         return await query.ToListAsync(cancellationToken);
     }
-
-    public void Update(Order order)
-    {
-        _context.Orders.Update(order);
-    }
 }

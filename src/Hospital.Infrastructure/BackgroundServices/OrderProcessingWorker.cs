@@ -37,13 +37,24 @@ namespace Hospital.Infrastructure.BackgroundServices
 
                 foreach (var order in orders)
                 {
-                    _logger.LogInformation("Procesando {Id}", order.Id);
+                    var oldStatus = order.Status;
+
+                    _logger.LogInformation(
+                        "ORDER PROCESSING STARTED | Id: {OrderId} | Status: {Status}",
+                        order.Id,
+                        oldStatus
+                    );
 
                     await Task.Delay(3000, stoppingToken);
 
                     order.MarkAsProcessed();
 
-                    await db.SaveChangesAsync(stoppingToken);
+                    _logger.LogInformation(
+                        "ORDER STATUS CHANGED | Id: {OrderId} | {OldStatus} → {NewStatus}",
+                        order.Id,
+                        oldStatus,
+                        order.Status
+                    );
                 }
 
                 await Task.Delay(TimeSpan.FromSeconds(40), stoppingToken);

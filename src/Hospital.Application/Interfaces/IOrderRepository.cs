@@ -10,6 +10,5 @@ namespace Hospital.Application.Interfaces
 
         Task<IReadOnlyList<Order>> GetAllAsync(string? patientId, OrderStatus? status, CancellationToken cancellationToken);
 
-        void Update(Order order);
     }
 }
