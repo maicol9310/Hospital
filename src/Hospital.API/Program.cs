@@ -5,6 +5,7 @@ using Hospital.Application.UnitOfWork;
 using Hospital.Infrastructure.BackgroundServices;
 using Hospital.Infrastructure.Persistence;
 using Hospital.Infrastructure.Persistence.Repositories;
+using Hospital.Infrastructure.Repositories;
 using Hospital.Infrastructure.UnitOfWork;
 using Hospital.SharedKernel.Behaviors;
 using Hospital.SharedKernel.Extensions;
@@ -15,6 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -92,6 +94,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddValidatorsFromAssembly(typeof(AssemblyMarker).Assembly);
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
