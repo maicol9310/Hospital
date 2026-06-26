@@ -50,3 +50,11 @@
 [2026-06-26 04:19:40 INF] HTTP POST /api/Auth/login responded 200 in 867.0955 ms
 [2026-06-26 04:20:08 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
 [2026-06-26 04:20:09 INF] HTTP GET /api/Orders/0F058F4A-A06C-4796-A174-77A3B5980099 responded 200 in 492.5950 ms
+[2026-06-26 05:06:03 INF] Worker iniciado.
+[2026-06-26 05:06:06 INF] HTTP GET /swagger/index.html responded 200 in 233.6875 ms
+[2026-06-26 05:06:07 INF] HTTP GET /swagger/index.html responded 200 in 17.9448 ms
+[2026-06-26 05:06:08 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 50.7799 ms
+[2026-06-26 05:06:40 INF] Worker iniciado.
+[2026-06-26 05:06:42 INF] HTTP GET /swagger/index.html responded 200 in 219.7729 ms
+[2026-06-26 05:06:43 INF] HTTP GET /swagger/index.html responded 200 in 5.5409 ms
+[2026-06-26 05:06:44 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 48.3354 ms
