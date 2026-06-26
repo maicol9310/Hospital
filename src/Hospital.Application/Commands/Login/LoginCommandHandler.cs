@@ -10,13 +10,13 @@ using System.Text;
 
 namespace Hospital.Application.Commands.Login
 {
-    public class LoginHandler : IRequestHandler<LoginCommand, AuthDto>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _config;
-        private readonly ILogger<LoginHandler> _logger;
+        private readonly ILogger<LoginCommandHandler> _logger;
 
-        public LoginHandler(IUnitOfWork unitOfWork, IConfiguration config, ILogger<LoginHandler> logger)
+        public LoginCommandHandler(IUnitOfWork unitOfWork, IConfiguration config, ILogger<LoginCommandHandler> logger)
         {
             _unitOfWork = unitOfWork;
             _config = config;
