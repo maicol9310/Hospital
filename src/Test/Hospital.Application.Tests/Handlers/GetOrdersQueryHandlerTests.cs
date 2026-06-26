@@ -11,18 +11,18 @@ namespace Hospital.Application.Tests.Handlers
     [TestFixture]
     public class GetOrdersQueryHandlerTests
     {
-        private Mock<IUnitOfWork> _uow = null!;
+        private Mock<IUnitOfWork> _unitOfWork = null!;
         private Mock<IMapper> _mapper = null!;
         private GetOrdersQueryHandler _handler = null!;
 
         [SetUp]
         public void Setup()
         {
-            _uow = new Mock<IUnitOfWork>();
+            _unitOfWork = new Mock<IUnitOfWork>();
             _mapper = new Mock<IMapper>();
 
             _handler = new GetOrdersQueryHandler(
-                _uow.Object,
+                _unitOfWork.Object,
                 _mapper.Object);
         }
 
@@ -45,7 +45,7 @@ namespace Hospital.Application.Tests.Handlers
                     null)
             };
 
-            _uow.Setup(x =>
+            _unitOfWork.Setup(x =>
                     x.Orders.GetAllAsync(
                         It.IsAny<string?>(),
                         It.IsAny<OrderStatus?>(),
