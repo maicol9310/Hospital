@@ -21,19 +21,30 @@ jobs:
 
     - name: Restore Backend Solutions
       run: |
+        dotnet build Hospital.slnx
+        dotnet restore src/Hospital.Application/Hospital.Application.csproj
+        dotnet restore src/Hospital.Domain/Hospital.Domain.csproj
+        dotnet restore src/Hospital.Infrastructure/Hospital.Infrastructure.csproj
+        dotnet restore src/Hospital.SharedKernel/Hospital.SharedKernel.csproj
+        dotnet restore src/Test/Hospital.Application.Tests/Hospital.Application.Tests.csproj
 
     - name: Build Backend Solutions
       run: |
+        dotnet build Hospital.slnx --no-restore --configuration Release
+        dotnet build src/Hospital.Application/Hospital.Application.csproj --no-restore --configuration Release
+        dotnet build src/Hospital.Domain/Hospital.Domain.csproj --no-restore --configuration Release
+        dotnet build src/Hospital.Infrastructure/Hospital.Infrastructure.csproj --no-restore --configuration Release
+        dotnet build src/Hospital.SharedKernel/Hospital.SharedKernel.csproj --no-restore --configuration Release
 
     - name: Prepare TestResults folder
-      run: mkdir -p 
+      run: mkdir -p src/Test/Hospital.Application.Tests/TestResults
 
     - name: Run Application Tests
-      run: dotnet test 
+      run: dotnet test src/Test/Hospital.Application.Tests/Hospital.Application.Tests.csproj --verbosity normal --logger "trx;LogFileName=src/Test/Hospital.Application.Tests/TestResults/test-results.trx"
 
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: 
+        path: src/Test/Hospital.Application.Tests/TestResults/test-results.trx
