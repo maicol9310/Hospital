@@ -16,7 +16,6 @@ using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
-using System.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
