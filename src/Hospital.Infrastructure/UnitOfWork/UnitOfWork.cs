@@ -7,16 +7,18 @@ namespace Hospital.Infrastructure.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly HospitalDbContext _context;
+        public IOrderRepository Orders { get; }
+        public IUserRepository Users { get; }
 
         public UnitOfWork(
             HospitalDbContext context,
-            IOrderRepository orderRepository)
+            IOrderRepository orderRepository,
+            IUserRepository userRepository)
         {
             _context = context;
             Orders = orderRepository;
+            Users = userRepository;
         }
-
-        public IOrderRepository Orders { get; }
 
         public async Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default)
