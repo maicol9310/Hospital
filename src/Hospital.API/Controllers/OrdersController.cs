@@ -4,12 +4,14 @@ using Hospital.Application.Queries.Orders.GetOrder;
 using Hospital.Application.Queries.Orders.GetOrders;
 using Hospital.Domain.Orders;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Policy = "RequireUser")]
     public class OrdersController : ControllerBase
     {
         private readonly ISender _sender;
