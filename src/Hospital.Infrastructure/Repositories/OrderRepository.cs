@@ -18,10 +18,11 @@ public class OrderRepository : IOrderRepository
         await _context.Orders.AddAsync(order, cancellationToken);
     }
 
-    public async Task<Order?> GetByIdAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<List<Order>?> GetByIdAsync(string patientId, CancellationToken cancellationToken = default)
     {
         return await _context.Orders
-            .FirstOrDefaultAsync(o => o.PatientId == id, cancellationToken);
+        .Where(o => o.PatientId == patientId)
+        .ToListAsync(cancellationToken);
     }
 
     public async Task<IReadOnlyList<Order>> GetAllAsync(

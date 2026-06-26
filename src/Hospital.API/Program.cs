@@ -2,6 +2,7 @@ using FluentValidation;
 using Hospital.Application;
 using Hospital.Application.Interfaces;
 using Hospital.Application.UnitOfWork;
+using Hospital.Infrastructure.BackgroundServices;
 using Hospital.Infrastructure.Persistence;
 using Hospital.Infrastructure.Persistence.Repositories;
 using Hospital.Infrastructure.UnitOfWork;
@@ -48,6 +49,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHostedService<OrderProcessingWorker>();
 
 var app = builder.Build();
 
