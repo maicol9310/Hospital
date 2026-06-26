@@ -11,3 +11,6 @@
 [2026-06-25 20:34:03 INF] Worker iniciado.
 [2026-06-25 20:35:08 INF] Worker iniciado.
 [2026-06-25 20:35:19 WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-25 20:39:42 INF] Worker iniciado.
+[2026-06-25 20:39:55 WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-25 20:39:55 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
