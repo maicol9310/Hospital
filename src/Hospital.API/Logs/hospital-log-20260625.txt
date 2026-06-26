@@ -1,0 +1,13 @@
+[2026-06-25 20:23:08 INF] Worker iniciado.
+[2026-06-25 20:23:11 INF] ORDER PROCESSING STARTED | Id: "0f058f4a-a06c-4796-a174-77a3b5980099" | Status: "Pending"
+[2026-06-25 20:23:14 INF] ORDER STATUS CHANGED | Id: "0f058f4a-a06c-4796-a174-77a3b5980099" | "Pending" → "Processed"
+[2026-06-25 20:23:52 INF] Worker iniciado.
+[2026-06-25 20:24:31 WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-25 20:24:31 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-06-25 20:24:31 INF] ORDER CREATED | Id: "48698f0b-38d0-4003-878a-f73260bb680d" | PatientId: 1072527948 | Status: "Pending" | CreatedAt: "2026-06-26T01:24:31.4448444Z"
+[2026-06-25 20:24:34 INF] ORDER PROCESSING STARTED | Id: "48698f0b-38d0-4003-878a-f73260bb680d" | Status: "Pending"
+[2026-06-25 20:24:37 INF] ORDER STATUS CHANGED | Id: "48698f0b-38d0-4003-878a-f73260bb680d" | "Pending" → "Processed"
+[2026-06-25 20:28:28 INF] Worker iniciado.
+[2026-06-25 20:34:03 INF] Worker iniciado.
+[2026-06-25 20:35:08 INF] Worker iniciado.
+[2026-06-25 20:35:19 WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.

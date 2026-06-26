@@ -22,7 +22,7 @@ namespace Hospital.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create(CreateOrderCommand command, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromQuery] CreateOrderCommand command, CancellationToken cancellationToken)
         {
             var response = await _sender.Send(command, cancellationToken);
 

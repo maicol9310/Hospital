@@ -55,6 +55,8 @@ namespace Hospital.Infrastructure.BackgroundServices
                         oldStatus,
                         order.Status
                     );
+
+                    await db.SaveChangesAsync(stoppingToken);
                 }
 
                 await Task.Delay(TimeSpan.FromSeconds(40), stoppingToken);
